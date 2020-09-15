@@ -1,0 +1,5 @@
+{
+  "upgrade": [
+    "CREATE TABLE IF NOT EXISTS \"user\" (\n    \"id\" SERIAL NOT NULL PRIMARY KEY,\n    \"name\" VARCHAR(60),\n    \"username\" VARCHAR(25) NOT NULL UNIQUE,\n    \"email\" VARCHAR(256) NOT NULL UNIQUE,\n    \"is_admin\" BOOL NOT NULL  DEFAULT False,\n    \"is_staff\" BOOL NOT NULL  DEFAULT False,\n    \"is_active\" BOOL NOT NULL  DEFAULT False,\n    \"is_superuser\" BOOL NOT NULL  DEFAULT False,\n    \"avatar\" VARCHAR(256)\n);\nCREATE TABLE IF NOT EXISTS \"post\" (\n    \"id\" SERIAL NOT NULL PRIMARY KEY,\n    \"title\" VARCHAR(100) NOT NULL,\n    \"body\" TEXT NOT NULL,\n    \"image\" VARCHAR(250) NOT NULL,\n    \"created\" TIMESTAMP NOT NULL  DEFAULT CURRENT_TIMESTAMP,\n    \"author_id\" INT NOT NULL REFERENCES \"user\" (\"id\") ON DELETE CASCADE\n);\nCREATE TABLE IF NOT EXISTS \"aerich\" (\n    \"id\" SERIAL NOT NULL PRIMARY KEY,\n    \"version\" VARCHAR(255) NOT NULL,\n    \"app\" VARCHAR(20) NOT NULL\n);"
+  ]
+}

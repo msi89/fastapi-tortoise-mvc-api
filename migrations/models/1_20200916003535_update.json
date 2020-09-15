@@ -1,0 +1,8 @@
+{
+  "upgrade": [
+    "ALTER TABLE \"user\" ADD \"password\" VARCHAR(1000) NOT NULL"
+  ],
+  "downgrade": [
+    "ALTER TABLE \"user\" DROP COLUMN \"password\""
+  ]
+}
