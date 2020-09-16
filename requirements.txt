@@ -6,3 +6,7 @@ aiosqlite==0.15.0
 tortoise-orm==0.16.14
 aerich==0.2.3
 asyncpg==0.21.0
+python-jose==3.2.0
+cryptography==3.1
+passlib==1.7.2
+bcrypt==3.2.0

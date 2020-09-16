@@ -9,6 +9,9 @@ PORT = 8000
 
 ALLOWED_HOSTS = []
 
+''' Databases '''
+DATABASE_URI = "postgresql://user:password@localhost:5432/db"
+
 TORTOISE_ORM = {
     "connections": {
         # "default": "sqlite://db.sqlite3",
@@ -36,4 +39,8 @@ TORTOISE_ORM = {
     }
 }
 
-# DATABASE_URI = "postgresql://user:password@localhost:5432/db"
+
+''' Security '''
+SECRET_KEY = "8fd86aafe0516b6d538b1b4204a62eea83adac12027eebcd15d669b93f62830e"
+ALGORITHM = "HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES: 30

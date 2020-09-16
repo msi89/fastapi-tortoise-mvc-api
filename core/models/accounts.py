@@ -1,8 +1,8 @@
-from tortoise.models import Model
-from tortoise import fields
+from tortoise import models, fields
+from core.middlewares.security import hash_password
 
 
-class User(Model):
+class User(models.Model):
     id = fields.IntField(pk=True)
     name = fields.CharField(max_length=60, default=None, null=True)
     username = fields.CharField(max_length=25, unique=True)
@@ -18,7 +18,7 @@ class User(Model):
         return f"{self.name} {self.email}"
 
     async def save(self, *args, **kwargs) -> None:
-        self.password = "123456"
+        self.password = hash_password(self.password)
         await super().save(*args, **kwargs)
 
     class PydanticMeta:
